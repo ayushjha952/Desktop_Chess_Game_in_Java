@@ -18,12 +18,10 @@ public class ChessGame extends Application {
 	private Label status;
 	private ChessBoard board;
 	private static ChessGame instance;
-	private boolean godmode = false;
 
 	@Override
 	public void start(Stage primaryStage) {
 		instance = this;
-		godmode = getParameters().getUnnamed().contains("--godmode");
 
 		primaryStage.setTitle("Chess");
 		primaryStage.getIcons().add(Helper.loadImage("images/icon.png", 16, 16));
@@ -52,20 +50,6 @@ public class ChessGame extends Application {
 		options.setAlignment(Pos.BOTTOM_RIGHT);
 
 		//secret option buttons
-		if (godmode) {
-			options.add(new OptionButton(
-					"images/clear.png",
-					e -> board.clear(),
-					"Clear"),
-					0, 0, 1, 1
-			);
-			options.add(new OptionButton(
-					"images/swap.png",
-					e -> board.nextTurn(),
-					"Skip turn"),
-					1, 0, 1, 1
-			);
-		}
 		options.add(new OptionButton(
 				"images/reset.png",
 				e -> {
@@ -144,9 +128,6 @@ public class ChessGame extends Application {
 		instance.status.setText(text);
 	}
 
-	static boolean isGodmode() {
-		return instance.godmode;
-	}
 
 	public static ChessBoard getBoard() {
 		return instance.board;
