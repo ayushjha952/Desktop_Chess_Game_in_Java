@@ -13,6 +13,7 @@ public class ChessBoard extends GridPane {
 	private int ruleOf50 = 0;
 	private Map<String, ChessIO> io = new LinkedHashMap<>();
 
+
 	ChessBoard() {
 		resetAttackedFields();
 		for (int i = 0; i < 64; i++) {
