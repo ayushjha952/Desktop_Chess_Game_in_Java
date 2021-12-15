@@ -43,9 +43,6 @@ public class ChessField extends Label {
 		setOnDragDone(this::onDragDone);
 		setOnMouseEntered(e -> onMouseEntered());
 		setOnMouseExited(e -> onMouseExited());
-		if (ChessGame.isGodmode()) {
-			setContextMenu(new GodmodeMenu(this));
-		}
 		setMinSize(50, 50);
 		setMaxSize(50, 50);
 	}
